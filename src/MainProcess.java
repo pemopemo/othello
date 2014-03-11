@@ -1,8 +1,8 @@
 import java.awt.Rectangle;
 import java.awt.Container;
+import java.awt.Color;
 import javax.swing.JFrame;
 
-import othello.notusing.MainPanel;
 import othello.OthelloPanel;
 
 public class MainProcess extends JFrame {
@@ -18,12 +18,12 @@ public class MainProcess extends JFrame {
         this.setResizable(false);
 
         // メインパネルを作成してフレームに追加
-//        MainPanel panel = new MainPanel();
         OthelloPanel panel = new OthelloPanel();
+        Container contentPane = this.getContentPane();
 
-        Container contentPane = getContentPane();
-        //背景を白に設定
-        //panel.setBackground(Color.WHITE);
+        //背景を白に設定 ※画像で背景を埋めるのであまり意味は無い
+        panel.setBackground(Color.WHITE);
+
         contentPane.add(panel);
 
         // パネルサイズに合わせてフレームサイズを自動設定
@@ -35,8 +35,9 @@ public class MainProcess extends JFrame {
      */
     public void centering(){
         Rectangle screen = this.getGraphicsConfiguration().getBounds();
-        this.setLocation(screen.x + screen.width/2  - this.getSize().width/2,
-                          screen.y + screen.height/2 - this.getSize().height/2);
+        // 画面の半分のサイズからウィンドウの半分のサイズを引くことでウインドの位置が真ん中になる
+        this.setLocation(screen.x + screen.width / 2  - this.getSize().width / 2,
+                         screen.y + screen.height / 2 - this.getSize().height / 2);
     }
 
     /**
@@ -50,6 +51,7 @@ public class MainProcess extends JFrame {
         // センタリング
         frame.centering();
 
+        // 見えるようにする。以上。
         frame.setVisible(true);
     }
 }

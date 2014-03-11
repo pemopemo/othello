@@ -56,7 +56,7 @@ public class OthelloPanel extends JPanel implements MouseListener, MouseMotionLi
         setPreferredSize(new Dimension(othello.getBoard().getWidth(), othello.getBoard().getHeight()));
 
         //画像をロード
-        readImage();
+        this.readImage();
 
         //Font使用
         fnt1 = new Font("ＭＳ ゴシック", Font.PLAIN, fontSize);
